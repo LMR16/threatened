@@ -12,9 +12,12 @@ def main():
     df = pd.DataFrame(csv)
 
     filtered_data = df[(df["Grupão"] == "Fauna") & (df["Grupo"] == "Aves")]
-    
+
     filtered_data.to_sql('threatended_fil', engine, if_exists="replace")
 
+
+if __name__ == "__main__":
+    main()
 
 def read_csv(path):
     csv = pd.read_csv(path, sep=';', encoding='latin-1')
